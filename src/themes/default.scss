@@ -1,4 +1,4 @@
-@import "/src/themes/variables";
+@use "/src/themes/variables" as *;
 
 body {
   background-color: $gray1;
