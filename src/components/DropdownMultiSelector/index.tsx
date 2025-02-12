@@ -40,10 +40,15 @@ const DropdownMultiSelector: FC<Props> = ({ placeholder, width, onChange }) => {
         value={value}
       />
 
+      <span className="inputIcon">
+        <i className={`arrow ${isFocused ? "up" : "down"}`}></i>
+      </span>
+
       {isFocused && (
         <ListItem>
           {[...customItems, ...defaultItems]?.map((item: ItemType) => (
             <Item
+              key={item.id}
               item={item}
               onClick={() => handleClickItem(item)}
               isSelected={checkIsSelected(item.id)}

@@ -1,13 +1,26 @@
 @use "/src/themes/variables" as *;
 
 .dropdown-multi-selector {
+  position: relative;
   .input {
-    border: 1px solid $primary;
+    border: 1px solid $gray2;
     padding: 0.75rem;
     border-radius: 0.5rem;
     width: calc(100% - 1.75rem);
+    &:focus {
+      outline: 1px solid $primary;
+      box-shadow: 0px 0px 10px $primary;
+    }
   }
+  .inputIcon {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    z-index: 1;
+  }
+
   .listItem {
+    z-index: 1;
     background-color: $white;
     padding: 1rem;
     border-radius: 1rem;
@@ -17,12 +30,12 @@
     .item {
       cursor: pointer;
       border-radius: 0.5rem;
-      padding: 0.5rem;
+      padding: 0.5rem 0.5rem 0.8rem 0.5rem;
       display: flex;
       &:hover {
         background: $secondary;
       }
-      .endItem {
+      .selectedIcon {
         margin-left: auto;
       }
     }

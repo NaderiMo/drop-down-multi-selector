@@ -11,7 +11,7 @@ const Item: FC<Props> = ({ item, isSelected, onClick }) => {
   return (
     <div key={item.id} className="item" onClick={() => onClick && onClick()}>
       {item.value}
-      {isSelected && <span className="endItem">✔️</span>}
+      {isSelected && <span className="selectedIcon">✔️</span>}
     </div>
   );
 };
