@@ -12,8 +12,16 @@ const useInput = () => {
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === "Enter") {
-      const newItem = { id: uuidV4(), value };
-      setCustomItems([...customItems, newItem]);
+      const isDuplicatedValue: boolean = customItems.some(
+        (item) => item.value === value
+      );
+
+      if (!isDuplicatedValue) {
+        const newItem = { id: uuidV4(), value };
+        setCustomItems([...customItems, newItem]);
+      } else {
+        alert("❌ duplicated value!");
+      }
     }
   };
 
