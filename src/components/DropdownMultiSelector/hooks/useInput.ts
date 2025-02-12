@@ -19,6 +19,7 @@ const useInput = () => {
       if (!isDuplicatedValue) {
         const newItem = { id: uuidV4(), value };
         setCustomItems([...customItems, newItem]);
+        setValue("");
       } else {
         alert("❌ duplicated value!");
       }
