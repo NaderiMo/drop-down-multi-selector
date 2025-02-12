@@ -5,6 +5,9 @@ import "./themes/default.scss";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <DropdownMultiSelector placeholder={"enter"} width={300} />
+    <DropdownMultiSelector
+      placeholder={"Select or Add new Items"}
+      width={340}
+    />
   </StrictMode>
 );

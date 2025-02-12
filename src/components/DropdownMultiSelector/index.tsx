@@ -1,32 +1,55 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
+import useClickOutside from "./hooks/useClickOutside";
+import useInput from "./hooks/useInput";
+import useSelectedItems from "./hooks/useSelectedItems";
+import defaultItems from "./mockData/defaultItems.json";
+import Item from "./partials/Item";
+import ListItem from "./partials/ListItems";
 import "./styles.scss";
-import { ListItem, Props } from "./types";
-import useInput from "../../hooks/useInput";
-import defaultItems from "./defaultItems.json";
+import { Item as ItemType } from "./types";
+interface Props {
+  placeholder?: string;
+  width?: number;
+  onChange?: (selectedItems: ItemType[]) => void;
+}
 
-const DropdownMultiSelector: FC<Props> = ({ placeholder, width }) => {
+const DropdownMultiSelector: FC<Props> = ({ placeholder, width, onChange }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const { value, handleChange } = useInput();
+  const { value, handleChange, handleKeyDown, customItems } = useInput();
+  const dropdownRef = useClickOutside(() => setIsFocused(false));
+  const { checkIsSelected, selectedItems, handleClickItem } =
+    useSelectedItems();
+
+  useEffect(() => {
+    onChange && onChange(selectedItems);
+  }, [selectedItems]);
 
   return (
-    <div className="dropdown-multi-selector" style={{ width }}>
-      <div
+    <div
+      className="dropdown-multi-selector"
+      style={{ width }}
+      ref={dropdownRef}
+    >
+      <input
+        placeholder={placeholder}
         className="input"
-        onInput={handleChange}
+        onChange={handleChange}
         onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        onKeyDown={handleKeyDown}
         contentEditable
-      >
-        {value}
-      </div>
+        value={value}
+      />
+
       {isFocused && (
-        <div className="listItems">
-          {defaultItems?.map((item: ListItem, index) => (
-            <div key={index} className="item">
-              {item?.label}
-            </div>
+        <ListItem>
+          {[...customItems, ...defaultItems]?.map((item: ItemType) => (
+            <Item
+              item={item}
+              onClick={() => handleClickItem(item)}
+              isSelected={checkIsSelected(item.id)}
+            />
           ))}
-        </div>
+        </ListItem>
       )}
     </div>
   );

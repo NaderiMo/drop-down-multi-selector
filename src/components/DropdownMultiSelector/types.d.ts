@@ -1,9 +1,4 @@
-export interface Props {
-  placeholder?: string;
-  width?: number;
-}
-
-export interface ListItem {
-  label: string;
+export interface Item {
   id: string;
+  value: string;
 }
