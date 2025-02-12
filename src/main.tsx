@@ -8,6 +8,7 @@ createRoot(document.getElementById("root")!).render(
     <DropdownMultiSelector
       placeholder={"Select or Add new Items"}
       width={340}
+      onChange={(v) => console.log("SelectedItems", v)}
     />
   </StrictMode>
 );
