@@ -2,7 +2,7 @@
 
 .dropdown-multi-selector {
   .input {
-    border: 1px solid map-get($colors, primary);
+    border: 1px solid $primary;
     padding: 0.5rem;
     border-radius: 0.5rem;
     width: inherit;

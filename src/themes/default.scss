@@ -1,6 +1,6 @@
 @import "/src/themes/variables";
 
 body {
-  background-color: map-get($colors, background);
+  background-color: $background;
   font-family: sans-serif;
 }
