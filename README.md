@@ -1,7 +1,12 @@
-# Dropdown multi selector
+# Dropdown multi selector component
 
-## How To start
+## Technologies
+- Reactjs
+- Vite
+- Scss
 
-- clone this repository
-- Run `pnpm i` or `yarn` or `npm install` to install dependencies.(requires nodejs, pnpm or yarn or use npm as default package manager of nodejs)
+## How To run
+
+- clone this repository.
+- Run `pnpm i` or `yarn` or `npm install` to install dependencies.
 - Run `pnpm dev` or `yarn dev` or `npm run dev` to run project in your system.
