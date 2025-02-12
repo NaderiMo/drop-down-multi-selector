@@ -3,6 +3,7 @@
 ## Technologies
 - Reactjs
 - Vite
+- Typescript
 - Scss
 
 ## How To run
