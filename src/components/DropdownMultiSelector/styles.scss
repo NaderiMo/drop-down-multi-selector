@@ -1,4 +1,10 @@
-.sample-text {
-  color: red;
-  font-family: "dubai";
+@import "/src/themes/variables";
+
+.dropdown-multi-selector {
+  .input {
+    border: 1px solid map-get($colors, primary);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: inherit;
+  }
 }
