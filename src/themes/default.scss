@@ -3,6 +3,7 @@
 body {
   background-color: $gray1;
   font-family: sans-serif;
+  color: $gray5;
 }
 
 .arrow {
@@ -20,4 +21,21 @@ body {
 .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: $gray4;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $gray5;
 }
